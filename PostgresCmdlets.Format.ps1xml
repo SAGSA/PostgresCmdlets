@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Configuration>
+    <ViewDefinitions>       
+        <View>
+            <Name>Default</Name>
+            <ViewSelectedBy>
+                <TypeName>ModulePostgresCmdlets.PostgresCmdlets.Database.List</TypeName>
+            </ViewSelectedBy>
+            <TableControl>
+				<TableHeaders>
+				  <TableColumnHeader>
+					<Label>Name</Label>
+					<Alignment>left</Alignment>
+				  </TableColumnHeader>
+				  <TableColumnHeader>
+					<Label>Size</Label>
+					<Alignment>left</Alignment>
+				  </TableColumnHeader>
+				  <TableColumnHeader>
+					<Label>ConnectionCount</Label>
+					<Alignment>left</Alignment>
+				  </TableColumnHeader>
+				  <TableColumnHeader>
+					<Label>AllowConn</Label>
+					<Alignment>left</Alignment>
+				  </TableColumnHeader>
+				</TableHeaders>
+            <TableRowEntries>
+              <TableRowEntry>
+                <TableColumnItems>
+                  <TableColumnItem>
+                    <PropertyName>Name</PropertyName>
+                  </TableColumnItem>  
+					<TableColumnItem>
+						<ScriptBlock>
+							if ($_.Size -ge 1gb)
+							{
+								[string]('{0:N2}' -f ($_.Size/1gb))+"Gb"
+							}
+							elseif ($_.Size -le 1mb)
+							{
+								[string]('{0:N2}' -f ($_.Size/1kb))+"Kb"
+							}
+							else
+							{
+							[string]('{0:N2}' -f ($_.Size/1mb))+"Mb"
+							}
+						</ScriptBlock>
+                  </TableColumnItem> 
+					<TableColumnItem>
+						<PropertyName>ConnectionCount</PropertyName>
+					</TableColumnItem>	
+					<TableColumnItem>
+						<PropertyName>AllowConn</PropertyName>
+					</TableColumnItem>				
+                </TableColumnItems>
+              </TableRowEntry>
+            </TableRowEntries>
+          </TableControl>
+        </View>          
+    </ViewDefinitions>
+</Configuration>
