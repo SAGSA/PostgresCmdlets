@@ -12,7 +12,7 @@
     ModuleToProcess = 'PostgresCmdlets.psm1'
 
     # Version number of this module.
-    ModuleVersion = '1.0.0'
+    ModuleVersion = '1.0.1'
 
     # Supported PSEditions
     # CompatiblePSEditions = @()
@@ -69,10 +69,10 @@
     # NestedModules = @()
 
     # Functions to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no functions to export.
-    FunctionsToExport=@("Get-PgDatabase","New-PgDatabase","Remove-PgDatabase","Restore-PgDatabase","Backup-PgDatabase","Disable-PgDatabaseConnections","Enable-PgDatabaseConnections","Rename-PgDatabase","New-PgCredential","Remove-PgCredential","Get-PgCredential","Invoke-PgQuery","Start-Vacuum","Get-PgServerInfo","Decompress-Archive")
+    FunctionsToExport=@("Get-PgDatabase","New-PgDatabase","Remove-PgDatabase","Restore-PgDatabase","Backup-PgDatabase","Disable-PgDatabaseConnections","Enable-PgDatabaseConnections","Rename-PgDatabase","New-PgCredential","Remove-PgCredential","Get-PgCredential","Invoke-PgQuery","Start-Vacuum","Get-PgServerInfo")
 
     # Cmdlets to export from this module, for best performance, do not use wildcards and do not delete the entry, use an empty array if there are no cmdlets to export.
-    CmdletsToExport = @("Get-PgDatabase","New-PgDatabase","Remove-PgDatabase","Restore-PgDatabase","Backup-PgDatabase","Disable-PgDatabaseConnections","Enable-PgDatabaseConnections","Rename-PgDatabase","New-PgCredential","Remove-PgCredential","Get-PgCredential","Invoke-PgQuery","Start-Vacuum","Get-PgServerInfo","Decompress-Archive")
+    #CmdletsToExport = @("Get-PgDatabase","New-PgDatabase","Remove-PgDatabase","Restore-PgDatabase","Backup-PgDatabase","Disable-PgDatabaseConnections","Enable-PgDatabaseConnections","Rename-PgDatabase","New-PgCredential","Remove-PgCredential","Get-PgCredential","Invoke-PgQuery","Start-Vacuum","Get-PgServerInfo")
 
     # Variables to export from this module
     #VariablesToExport = '*'
@@ -108,8 +108,9 @@
 
             # ReleaseNotes of this module
             ReleaseNotes = @' 
-## 1.0.0
-*   first release
+## 1.0.1
+*   Added examples
+*   The Backup-PgDatabase and Restore-PgDatabase functions have been changed
 '@
 
         } # End of PSData hashTable

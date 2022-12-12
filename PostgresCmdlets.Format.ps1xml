@@ -57,6 +57,49 @@
               </TableRowEntry>
             </TableRowEntries>
           </TableControl>
-        </View>          
+        </View>
+        <View>
+            <Name>Default</Name>
+            <ViewSelectedBy>
+                <TypeName>ModulePostgresCmdlets.PostgresCmdlets.Database.backup</TypeName>
+            </ViewSelectedBy>
+            <ListControl>
+                <ListEntries>
+                    <ListEntry>
+                        <ListItems>
+                            <ListItem>
+                                <PropertyName>Name</PropertyName>
+                            </ListItem>
+                            <ListItem>
+                                <PropertyName>Format</PropertyName>
+                            </ListItem>
+                            <ListItem>
+                                <PropertyName>BackupFile</PropertyName>
+                            </ListItem>
+                            <ListItem>
+                                <Label>Size</Label>
+                                    <ScriptBlock> 
+                                        if ($_.Size -ge 1gb)
+							            {
+								            [string]('{0:N2}' -f ($_.Size/1gb))+"Gb"
+							            }
+							            elseif ($_.Size -le 1mb)
+							            {
+								            [string]('{0:N2}' -f ($_.Size/1kb))+"Kb"
+							            }
+							            else
+							            {
+							                [string]('{0:N2}' -f ($_.Size/1mb))+"Mb"
+							            }
+                                    </ScriptBlock>
+                            </ListItem>
+                            <ListItem>
+                                <PropertyName>BackupTime</PropertyName>
+                            </ListItem>
+                        </ListItems>
+                    </ListEntry>
+                </ListEntries>
+            </ListControl>
+        </View>              
     </ViewDefinitions>
 </Configuration>
