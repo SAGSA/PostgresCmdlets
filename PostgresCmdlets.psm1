@@ -875,7 +875,7 @@ function Restore-PgDatabase{
                             $BinBackups | foreach {
                                 $BinBackup=$_
                                 $BinBackupPath=$_.FullName
-                                if ($BinBackup -match ".+_(.+)\.bin$"){
+                                if ($BinBackup -match ".+\d{6}_(.+)\.bin$"){
                                     $TableName=$Matches[1]
                                 }else{
                                     Write-Error "Incorrect file name $BinBackup.fullname" -ErrorAction Stop
